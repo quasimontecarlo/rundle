@@ -20,14 +20,8 @@ typedef struct {
 } Camera;
 
 typedef struct {
-	Camera camera;
-}Scene;
-
-typedef struct {
-
 	struct {
 		Vec3 position; // Position of light source
 		float intensity; // Intensity of light
 	}pointLight;
 }Light;
-

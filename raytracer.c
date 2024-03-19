@@ -1,12 +1,11 @@
 #include "raytracer.h"
-#include "shapes.h"
 
-void render_scene(char array[10][10]) {
+void render_scene(char array[10][10], Camera* camera, Light* light) {
     // 3. Iterate over each pixel in the 2D array (i.e., for each ray)
     for(int i = 0; i < 10; i++) {
         for(int j = 0; j < 10; j++) {
 			// add point light
-			add_point_light(Scene.light, Camera);
+			add_point_light(light, camera);
             // Calculate color of the ray
             int color_index = i * j % 8;  // Replace this with your color calculation
             
@@ -16,9 +15,9 @@ void render_scene(char array[10][10]) {
     }    
 }
 
-static void add_point_light(Light* light, Camera* camera) {
+void add_point_light(Light* light, Camera* camera) {
 	//init point light
-	light->pointLight.position = (Vec3)(0);
+	light->pointLight.position = (Vec3){0.0f, 0.0f, 0.0f};
 	light->pointLight.intensity = 1;
 }
 
