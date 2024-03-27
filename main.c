@@ -1,17 +1,22 @@
 #include <stdio.h>
-#include "raytracer.h"
+#include <math.h>
+#include "color.h"
+#include "vec3.h"
 
-int main(){
-	char array[10][10]; //create 2d array
-    Camera Camer = {(Vec3){0.0f,0.0f,0.0f}, (Vec3){1.0f,1.0f,1.0f}};
-    Light Light;
-	render_scene(&array[0][0], &Camera, &Light);	// pass the arrray to render function
-	
-	// printing the array
-	for(int i=0;i<10;i++){
-		for(int j=0;j<10;j++)
-			printf("%c",array[i][j]);
+int main() {
+    // Image
+    int image_width = 100;
+    int image_height = image_width * 0.25;
+
+    // Render
+
+    for (int j = 0; j < image_height; ++j) {
+        for (int i = 0; i < image_width; ++i) {
+			//double pixel_color[3] = {double(i)/(image_width-1), double(j)/(image_height-1), 0};
+			color pixel_color = {(double)i/(image_width-1), (double)j/(image_height-1), 0};
+			write_ascii(stdout, pixel_color);
+        }
 		printf("\n");
-	}
-	return 0;
+    }
+	printf("\n");
 }
