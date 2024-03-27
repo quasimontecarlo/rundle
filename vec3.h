@@ -25,6 +25,10 @@ vec3 vec3_div(vec3 v, double t) {
     return (vec3){v.x / t, v.y / t, v.z / t};
 }
 
+vec3 vec3_scale(vec3 v, double t) {
+    return (vec3){v.x * t, v.y * t, v.z * t};
+}
+
 double dot(vec3 u, vec3 v) {
     return u.x * v.x + u.y * v.y + u.z * v.z;
 }
